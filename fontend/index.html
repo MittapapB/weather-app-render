@@ -29,8 +29,8 @@
         console.log(resultDiv);
         // resultDiv.innerHTML = respJSON.main.temp;
         resultDiv.innerHTML += ` <h1> ${respJSON.name} </h1> `;
-        resultDiv.innerHTML += `<div> ${respJSON.main.temp} </div>`;
-        resultDiv.innerHTML += `<div> ${respJSON.weather[0].description} </div>`;
+        resultDiv.innerHTML += `<div>Temperature: ${respJSON.main.temp} </div>`;
+        resultDiv.innerHTML += `<div>Description: ${respJSON.weather[0].description} </div>`;
         resultDiv.innerHTML += `<div> <img src="https://openweathermap.org/img/wn/${respJSON.weather[0].icon}@2x.png" </div>`;
       });
     </script>
