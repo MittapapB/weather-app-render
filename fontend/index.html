@@ -23,7 +23,8 @@
         //   });
         event.preventDefault();
         const resp = await fetch(
-          `http://localhost:3000/weather?cityName=${cityInput.value}`
+          // `http://localhost:3000/weather?cityName=${cityInput.value}`
+          `https://weather-app-render.onrender.com/weather?cityName=${cityInput.value}`
         );
         const respJSON = await resp.json();
         console.log(resultDiv);
