@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form id="form1" action="">
+      <input type="text" id="cityInput" value="Yellowknife" />
+      <input type="submit" />
+      <!-- <button type="submit" id="submitBtn">Submit</button> -->
+    </form>
+
+    <result id="resultDiv"></result>
+    <script>
+      form1.addEventListener("click", async (event) => {
+        console.log(1111111);
+        // fetch(`http://localhost:3000/weather`)
+        //   .then((resp) => resp.text())
+        //   .then((respText) => {
+        //     console.log(respText);
+        //   });
+        event.preventDefault();
+        const resp = await fetch(
+          `http://localhost:3000/weather?cityName=${cityInput.value}`
+        );
+        const respJSON = await resp.json();
+        console.log(resultDiv);
+        // resultDiv.innerHTML = respJSON.main.temp;
+        resultDiv.innerHTML += ` <h1> ${respJSON.name} </h1> `;
+        resultDiv.innerHTML += `<div> ${respJSON.main.temp} </div>`;
+        resultDiv.innerHTML += `<div> ${respJSON.weather[0].description} </div>`;
+        resultDiv.innerHTML += `<div> <img src="https://openweathermap.org/img/wn/${respJSON.weather[0].icon}@2x.png" </div>`;
+      });
+    </script>
+  </body>
+</html>
